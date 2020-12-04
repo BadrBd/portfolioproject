@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+
+	<main role="main">
+		<div class="container">
+
+			<h1 class="text-center pt-3">Welcome bro to the blog</h1>
+			</br>
+			</br>
+			<h2>Latest Posts</h2><hr/>
+			{% for instance in object_list %}
+			<a href='detail/{{instance.id}}'>
+				
+
+
+				<div class="card mb-3" style="max-width: 540px;">
+					<div class="row no-gutters">
+						<div class="col-md-4">
+							<img src="{{instance.image.url}}" class="card-img" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">{{instance.title}}</h5>
+								<p class="card-text">{{instance.body}}</p>
+								<p class="card-text"><small class="text-muted">Creation date : {{instance.pub_date}}</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+
+
+
+
+
+		</div>
+
+	</main>
+
+{% include 'footer.html' %}
