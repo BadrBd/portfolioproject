@@ -3,8 +3,9 @@
 	<main role="main">
 		<div class="container">
 
-			<h1 class="text-center pt-3">Welcome bro to the blog</h1>
+			<h1 class="text-center pt-3">Welcome to the blog page</h1>
 			</br>
+			<a href="create/" class="btn btn-primary my-2">Create a Blog</a>
 			</br>
 			<h2>Latest Posts</h2><hr/>
 			{% for instance in object_list %}
@@ -23,12 +24,15 @@
 							<div class="card-body">
 								<h5 class="card-title">{{instance.title}}</h5>
 								<p class="card-text">{{instance.body}}</p>
-								<p class="card-text"><small class="text-muted">Creation date : {{instance.pub_date}}</small></p>
+								<p class="card-text"><small class="text-muted">Creation date : {{instance.pub_date_pretty}}</small></p>
 							</div>
+
 						</div>
 					</div>
 					</a>
 				</div>
+				<a href="{% url 'blog:blog-delete' instance.id %}" class="btn btn-primary my-2">Delete</a>
+				<a href="{% url 'blog:blog-update' instance.id %}" class="btn btn-primary my-2">Update</a>
 			
 			{% endfor %}
 
